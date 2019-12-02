@@ -6,20 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/pictureButton"
-        android:layout_width="155dp"
-        android:layout_height="52dp"
-        android:text="Launch Camera"
-        tools:layout_editor_absoluteX="127dp"
-        tools:layout_editor_absoluteY="262dp" />
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/importButton"
-        android:layout_width="158dp"
-        android:layout_height="51dp"
-        android:text="Import from Device"
-        tools:layout_editor_absoluteX="127dp"
-        tools:layout_editor_absoluteY="327dp" />
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="270dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/pictureButton"
+            android:layout_width="157dp"
+            android:layout_height="52dp"
+            android:text="Launch Camera" />
+
+        <Button
+            android:id="@+id/importButton"
+            android:layout_width="158dp"
+            android:layout_height="51dp"
+            android:text="Import from Device" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
