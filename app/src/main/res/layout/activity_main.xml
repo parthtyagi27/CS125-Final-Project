@@ -15,11 +15,11 @@
         tools:layout_editor_absoluteY="262dp" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="157dp"
-        android:layout_height="60dp"
+        android:id="@+id/importButton"
+        android:layout_width="158dp"
+        android:layout_height="51dp"
         android:text="Import from Device"
         tools:layout_editor_absoluteX="127dp"
-        tools:layout_editor_absoluteY="324dp" />
+        tools:layout_editor_absoluteY="327dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
