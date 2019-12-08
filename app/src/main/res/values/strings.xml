@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CS125 Final Project</string>
+    <string name="title_activity_camera">Camera</string>
 </resources>
