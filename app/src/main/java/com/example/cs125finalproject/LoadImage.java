@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Html;
 import android.text.InputType;
+import android.util.Patterns;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.Button;
@@ -48,6 +49,8 @@ public class LoadImage extends AppCompatActivity {
         inputImage = findViewById(R.id.inputImage);
         outputText = findViewById(R.id.outputText);
 
+        outputText.setFocusable(true);
+        outputText.setFocusableInTouchMode(true);
         outputText.setInputType(InputType.TYPE_NULL);
 
         loadImageBtn.setOnClickListener(new View.OnClickListener() {
@@ -100,11 +103,12 @@ public class LoadImage extends AppCompatActivity {
                             System.out.println("Found text block = " + textBlock.getValue());
                             stringBuilder.append("\n");
                         }
-                        outputText.setText(stringBuilder.toString(), TextView.BufferType.SPANNABLE);
-//                        List<String> links = parseText(stringBuilder.toString());
-//                        for (String link : links) {
-//                            outputText.setText(outputText.getText() + "\n" + Html.fromHtml(link, Html.FROM_HTML_MODE_COMPACT));
-//                        }
+                        outputText.setText("", TextView.BufferType.NORMAL);
+//                        outputText.setText(stringBuilder.toString(), TextView.BufferType.NORMAL);
+                        List<String> links = parseText(stringBuilder.toString());
+                        for (String link : links) {
+                            outputText.setText(outputText.getText() + "\n" + Html.fromHtml(link, Html.FROM_HTML_MODE_COMPACT), TextView.BufferType.NORMAL);
+                        }
                     }
                 }
             }
@@ -142,7 +146,8 @@ public class LoadImage extends AppCompatActivity {
 
         List<String> links = new ArrayList<>();
         String urlRegex = "\\b(?:(?:https?|ftp|file)://|www\\.|ftp\\.)[-A-Z0-9+&@#/%=~_|$?!:,.]*[A-Z0-9+&@#/%=~_|$]\n";
-        Pattern pattern = Pattern.compile(urlRegex, Pattern.CASE_INSENSITIVE);
+//        Pattern pattern = Pattern.compile(urlRegex, Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Patterns.WEB_URL;
         Matcher urlMatcher = pattern.matcher(text);
 
         while (urlMatcher.find()) {
