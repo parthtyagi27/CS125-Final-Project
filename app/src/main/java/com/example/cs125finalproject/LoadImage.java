@@ -147,7 +147,7 @@ public class LoadImage extends AppCompatActivity {
         List<String> links = new ArrayList<>();
         String urlRegex = "\\b(?:(?:https?|ftp|file)://|www\\.|ftp\\.)[-A-Z0-9+&@#/%=~_|$?!:,.]*[A-Z0-9+&@#/%=~_|$]\n";
 //        Pattern pattern = Pattern.compile(urlRegex, Pattern.CASE_INSENSITIVE);
-        Pattern pattern = Patterns.WEB_URL;
+        Pattern pattern = Pattern.compile(Patterns.WEB_URL.pattern(), Pattern.CASE_INSENSITIVE);
         Matcher urlMatcher = pattern.matcher(text);
 
         while (urlMatcher.find()) {
